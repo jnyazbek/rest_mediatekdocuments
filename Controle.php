@@ -32,6 +32,7 @@ class Controle{
             'message' => $message,
             'result' => $result
         );
+        
         echo json_encode($retour, JSON_UNESCAPED_UNICODE);
     }
 
@@ -41,10 +42,20 @@ class Controle{
      * @param type $champs nom et valeur des champs de recherche
      */
     public function get($table, $champs){
+        //print_r("champs = ");
+        //print_r($champs);
         $result = null;
-        if ($champs==""){
+        if (empty($champs)){
+            
             $result = $this->accessBDD->selectAll($table);
         }else{
+            //print_r("champs n'est pas vide");
+            //print_r($champs);
+            if (!is_array($champs)) {
+            $champs = json_decode($champs, true);
+            //print_r("champs converit en tableau");
+            //print_r($champs);
+            }
             $result = $this->accessBDD->select($table, $champs);
         }
         if (gettype($result) != "array" && ($result == false || $result == null)){
@@ -88,8 +99,8 @@ class Controle{
      * @param string $id valeur de l'id
      * @param array $champs nom et valeur des champs
      */
-    public function put($table, $id, $champs){
-        $result = $this->accessBDD->updateOne($table, $id, $champs);	
+    public function put($table, $champs){
+        $result = $this->accessBDD->updateOne($table, $champs);	
         if ($result == null || $result == false){
             $this->reponse(400, "requete invalide");
         }else{	

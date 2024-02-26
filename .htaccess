@@ -1,4 +1,13 @@
 RewriteEngine on
+# Règle pour les commandedocument par ID de livre
+RewriteRule ^commandedocument/livre/([0-9]+)$ mediatekdocuments.php?table=commandedocument&id=$1 [L,QSA]
+RewriteRule ^commandedocument/dvd/([0-9]+)$ mediatekdocuments.php?table=commandedocument&id=$1 [L,QSA]
+RewriteRule ^abonnement/revue/([0-9]+)$ mediatekdocuments.php?table=abonnement&id=$1 [L,QSA]
+RewriteRule ^abonnement/([0-9]+)$ mediatekdocuments.php?table=abonnement&id=$1 [L,QSA]
 RewriteRule ^([a-zA-Z]+)$ mediatekdocuments.php?table=$1
 RewriteRule ^([a-zA-Z]+)/({.*})$ mediatekdocuments.php?table=$1&champs=$2
 RewriteRule ^([a-zA-Z]+)/([a-zA-Z0-9]+)/({.*})$ mediatekdocuments.php?table=$1&id=$2&champs=$3
+RewriteRule ^commandedocument/([0-9]+)$ mediatekdocuments.php?table=commandedocument&id=$1 [L,QSA]
+RewriteRule ^suivi/([0-9]+)$ mediatekdocuments.php?table=suivi&id=$1 [L,QSA]
+RewriteRule ^commande/([0-9]+)$ mediatekdocuments.php?table=commande&id=$1 [L,QSA]
+RewriteRule ^exemplaire/([0-9]+)$ mediatekdocuments.php?table=exemplaire&id=$1

@@ -30,6 +30,7 @@ class ConnexionPDO {
      * @return résultat requête (booléen)
      */
     public function execute($requete, $param=null){
+        //print_r($param);
         try{	
             $requetePrepare = $this->conn->prepare($requete);
             if($param != null){
@@ -51,12 +52,15 @@ class ConnexionPDO {
      */
     public function query($requete, $param=null){
         try{
+           // print_r($param);
             $requetePrepare = $this->conn->prepare($requete);
             if($param != null){
                 foreach($param as $key => &$value){
                     $requetePrepare->bindParam(":$key", $value);
+                   
                 }
             }
+            //print_r($requetePrepare);
             $reponse = $requetePrepare->execute();
             if($reponse == true){
                 return $requetePrepare->fetchAll(PDO::FETCH_ASSOC);
