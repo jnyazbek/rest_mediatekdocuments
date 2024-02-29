@@ -11,3 +11,4 @@ RewriteRule ^commandedocument/([0-9]+)$ mediatekdocuments.php?table=commandedocu
 RewriteRule ^suivi/([0-9]+)$ mediatekdocuments.php?table=suivi&id=$1 [L,QSA]
 RewriteRule ^commande/([0-9]+)$ mediatekdocuments.php?table=commande&id=$1 [L,QSA]
 RewriteRule ^exemplaire/([0-9]+)$ mediatekdocuments.php?table=exemplaire&id=$1
+RewriteRule ^utilisateur/([0-9]+)$ mediatekdocuments.php?table=utilisateur&id=$1
