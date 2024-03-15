@@ -5,7 +5,7 @@ $controle = new Controle();
 
 // Contrôle de l'authentification
 if (!isset($_SERVER['PHP_AUTH_USER']) || (isset($_SERVER['PHP_AUTH_USER']) && 
-    !($_SERVER['PHP_AUTH_USER'] == 'admin' && $_SERVER['PHP_AUTH_PW'] == 'adminpwd'))) {
+    !($_SERVER['PHP_AUTH_USER'] == 'admin' && $_SERVER['PHP_AUTH_PW'] == 'btsSIO7!'))) {
     $controle->unauthorized();
 } else {
     // Traitement suivant le verbe HTTP utilisé
